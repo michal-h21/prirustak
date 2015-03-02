@@ -128,7 +128,7 @@
          <span class="z3">2011</span></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <span class="z3">2012</span></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4">2013</span></td></tr>
    <tr>
       <td width="100" valign="middle" align="center" bg_color="white">
          <span class="z3">CŠM</span></td>
@@ -168,7 +168,7 @@
          <span class="z3">0</span></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <a href="csm12.htm"><span class="z4">26</span></a></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4"><a href="csm13.html">30</a></span></td></tr>
    <tr>
       <td width="100" valign="middle" align="center" bg_color="white">
          <span class="z3">KAJL</span></td>
@@ -208,7 +208,7 @@
          <a href="kajl11.htm"><span class="z4">15</span></a></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <a href="kajl12.htm"><span class="z4">15</span></a></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4"><a href="kajl13.html">20</a></span></td></tr>
    <tr>
       <td width="100" valign="middle" align="center" bg_color="white">
          <span class="z3">KBES</span></td>
@@ -248,7 +248,7 @@
          <a href="kbes11.htm"><span class="z4">31</span></a></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <a href="kbes12.htm"><span class="z4">14</span></a></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4"><a href="kbes13.html">34</a></span></td></tr>
    <tr>
       <td width="100" valign="middle" align="center" bg_color="white">
          <span class="z3">KBEV</span></td>
@@ -288,7 +288,7 @@
          <span class="z3">0</span></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <span class="z3">0</span></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4">0</span></td></tr>
    <tr>
       <td width="100" valign="middle" align="center" bg_color="white">
          <span class="z3">KČL</span></td>
@@ -328,7 +328,7 @@
          <a href="kcl11.htm"><span class="z4">26</span></a></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <a href="kcl12.htm"><span class="z4">16</span></a></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4"><a href="kcl13.html">16</a></span></td></tr>
    <tr>
       <td width="100" valign="middle" align="center" bg_color="white">
          <span class="z3">KČJ</span></td>
@@ -368,7 +368,7 @@
          <a href="kcj11.htm"><span class="z4">19</span></a></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <a href="kcj12.htm"><span class="z4">9</span></a></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4"><a href="kcj13.html">16</a></span></td></tr>
    <tr>
       <td width="100" valign="middle" align="center" bg_color="white">
          <span class="z3">KČJL</span></td>
@@ -408,7 +408,7 @@
          <a href="neevidovano.htm"><span class="z4">0</span></a></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <a href="neevidovano.htm"><span class="z4">0</span></a></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4">0</span></td></tr>
    <tr>
       <td width="100" valign="middle" align="center" bg_color="white">
          <span class="z3">KDDD</span></td>
@@ -448,7 +448,7 @@
          <a href="kddd11.htm"><span class="z4">14</span></a></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <a href="kddd12.htm"><span class="z4">8</span></a></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4"><a href="kddd13.html">19</a></span></td></tr>
    <tr>
       <td width="100" valign="middle" align="center" bg_color="white">
          <span class="z3">KFJL</span></td>
@@ -488,7 +488,7 @@
          <a href="kfjl11.htm"><span class="z4">10</span></a></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <a href="kfjl12.htm"><span class="z4">18</span></a></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4"><a href="kfjl13.html">6</a></span></td></tr>
    <tr>
       <td width="100" valign="middle" align="center" bg_color="white">
          <span class="z3">KG</span></td>
@@ -528,7 +528,7 @@
          <a href="kg11.htm"><span class="z4">14</span></a></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <a href="kg12.htm"><span class="z4">7</span></a></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4"><a href="kg13.html">4</a></span></td></tr>
 <!--
    <tr>
       <td width="100" valign="middle" align="center" bg_color="white">
@@ -555,7 +555,7 @@
          <a href="neevidovano.htm"><span class="z4">0</span></a></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <a href="neevidovano.htm"><span class="z4">0</span></a></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4">0</span></td></tr>
 -->
    <tr>
       <td width="100" valign="middle" align="center" bg_color="white">
@@ -596,7 +596,7 @@
          <a href="khv11.htm"><span class="z4">24</span></a></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <a href="khv12.htm"><span class="z4">23</span></a></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4"><a href="khv13.html">14</a></span></td></tr>
    <tr>
       <td width="100" valign="middle" align="center" bg_color="white">
          <span class="z3">KCHDCH</span></td>
@@ -636,7 +636,7 @@
          <a href="kchdch11.htm"><span class="z4">1</span></a></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <a href="kchdch12.htm"><span class="z4">4</span></a></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4"><a href="kchdch13.html">3</a></span></td></tr>
    <tr>
       <td width="100" valign="middle" align="center" bg_color="white">
          <span class="z3">KITTV</span></td>
@@ -676,7 +676,7 @@
          <a href="kittv11.htm"><span class="z4">8</span></a></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <a href="kittv12.htm"><span class="z4">4</span></a></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4"><a href="kittv13.html">3</a></span></td></tr>
    <tr>
       <td width="100" valign="middle" align="center" bg_color="white">
          <span class="z3">KMDM</span></td>
@@ -716,7 +716,7 @@
          <a href="kmdm11.htm"><span class="z4">13</span></a></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <a href="kmdm12.htm"><span class="z4">14</span></a></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4"><a href="kmdm13.html">10</a></span></td></tr>
    <tr>
       <td width="100" valign="middle" align="center" bg_color="white">
          <span class="z3">KOVF</span></td>
@@ -756,7 +756,7 @@
          <a href="kovf11.htm"><span class="z4">39</span></a></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <a href="kovf12.htm"><span class="z4">30</span></a></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4"><a href="kovf13.html">28</a></span></td></tr>
    <tr>
       <td width="100" valign="middle" align="center" bg_color="white">
          <span class="z3">KPgŠPs</span></td>
@@ -796,7 +796,7 @@
          <a href="neevidovano.htm"><span class="z4">0</span></a></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <a href="neevidovano.htm"><span class="z4">0</span></a></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4">0</span></td></tr>
    <tr>
       <td width="100" valign="middle" align="center" bg_color="white">
          <span class="z3">KPg</span></td>
@@ -836,7 +836,7 @@
          <a href="neevidovano.htm"><span class="z4">0</span></a></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <a href="kpg12.htm"><span class="z4">7</span></a></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4"><a href="kpg13.html">11</a></span></td></tr>
    <tr>
       <td width="100" valign="middle" align="center" bg_color="white">
          <span class="z3">KPPg</span></td>
@@ -876,7 +876,7 @@
          <a href="kpp11.htm"><span class="z4">49</span></a></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <a href="kpp12.htm"><span class="z4">61</span></a></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4"><a href="kppg13.html">51</a></span></td></tr>
    <tr>
       <td width="100" valign="middle" align="center" bg_color="white">
          <span class="z3">KPsy</span></td>
@@ -916,7 +916,7 @@
          <a href="kpsy11.htm"><span class="z4">18</span></a></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <a href="kpsy12.htm"><span class="z4">32</span></a></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4"><a href="kpsy13.html">30</a></span></td></tr>
    <tr>
       <td width="100" valign="middle" align="center" bg_color="white">
          <span class="z3">KRL</span></td>
@@ -956,7 +956,7 @@
          <a href="krl11.htm"><span class="z4">4</span></a></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <a href="krl12.htm"><span class="z4">4</span></a></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4"><a href="krl13.html">1</a></span></td></tr>
    <tr>
       <td width="100" valign="middle" align="center" bg_color="white">
          <span class="z3">KSpPg</span></td>
@@ -996,7 +996,7 @@
          <a href="ksp11.htm"><span class="z4">22</span></a></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <a href="ksp12.htm"><span class="z4">40</span></a></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4"><a href="ksppg13.html">49</a></span></td></tr>
    <tr>
       <td width="100" valign="middle" align="center" bg_color="white">
          <span class="z3">KŠSPg</span></td>
@@ -1036,7 +1036,7 @@
          <a href="kssp11.htm"><span class="z4">15</span></a></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <a href="neevidovano.htm"><span class="z4">0</span></a></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4">0</span></td></tr>
 <!--
    <tr>
       <td width="100" valign="middle" align="center" bg_color="white">
@@ -1063,7 +1063,7 @@
          <a href="neevidovano.htm"><span class="z4">0</span></a></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <a href="neevidovano.htm"><span class="z4">0</span></a></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4">0</span></td></tr>
 -->
    <tr>
       <td width="100" valign="middle" align="center" bg_color="white">
@@ -1104,7 +1104,7 @@
          <a href="ktv11.htm"><span class="z4">41</span></a></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <a href="ktv12.htm"><span class="z4">22</span></a></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4"><a href="ktv13.html">22</a></span></td></tr>
    <tr>
       <td width="100" valign="middle" align="center" bg_color="white">
          <span class="z3">KVV</span></td>
@@ -1144,7 +1144,7 @@
          <a href="kvv11.htm"><span class="z4">31</span></a></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <a href="kvv12.htm"><span class="z4">22</span></a></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4"><a href="kvv13.html">28</a></span></td></tr>
    <tr>
       <td width="100" valign="middle" align="center" bg_color="white">
          <span class="z3">ÚVRV</span></td>
@@ -1184,7 +1184,7 @@
          <a href="uvrv11.htm"><span class="z4">3</span></a></td>
       <td width="50" valign="middle" align="center" bg_color="white">
          <a href="uvrv12.htm"><span class="z4">1</span></a></td>
-   </tr>
+   <td width="50" valign="middle" align="center"><span class="z4"><a href="uvrv13.html">3</a></span></td></tr>
 
 
 </table>
