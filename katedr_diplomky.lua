@@ -22,15 +22,17 @@ local function load_katedry()
 	return t,l
 end
 local parser= require "parse_prir"
+local sort = require "sort"
+local remove = require "removeaccents"
 local input = arg[1]
 local proc_year = arg[2] or 2013
-local proc_year_short = proc_year:sub(2)
+local proc_year_short = proc_year:sub(3)
 local proc_kat = arg[3]
 local f = parser.load_file(input)
 local kat_short, kat_long  = load_katedry()
 local diplout = "diplout/"
 local pos = parser.find_pos(f,
-  {"is-loan", "z30-item-status","z30-call-no", "z30-barcode", "bib-info","z13-year","z13u-user-defined-10"})
+  {"is-loan", "z30-item-status","z30-call-no", "z30-barcode", "bib-info","z13-year","z13u-user-defined-10","z13u-user-defined-3"})
 parser.make_saves(pos)
 
 local zaz = parser.parse(f)
@@ -59,7 +61,7 @@ local function save_file(name, txt)
 end
 
 local function make_name(kat, yr)
-	local kat = lower(kat)
+	local kat = remove.strip_accents(lower(kat))
 	return kat .. yr .. ".html"
 end
 
@@ -71,17 +73,20 @@ end
 
 table.sort(t)
 local kat_tpl = [[
-<DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8" />
 <title>Obhájené diplomové práce: {katlong}</title>
-  <link rel="stylesheet" type="text/css" href="css/screen.css" />
-  <link rel="stylesheet" type="text/css" href="scale.css" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/scale.css" />
+	<link rel="stylesheet" type="text/css" href="/css/dipl.css" />
+
 </head>
 <body>
 <header>
 <h1>Obhájené diplomové práce: {katlong}</h1>
+</header>
 {records}
 </body>
 </html>
@@ -91,13 +96,29 @@ local function make_katedra(kat_name, records)
 	local k = kat_name
 	local s = kat_short[k]
 	local t = {}
+	local f = {}
 	if not records then return nil end
 	for _,x in ipairs(records) do
-		local rec = string.format("<div class='record'>\n<p>%s</p>\n<span class='signatura'>%s</span>\n</div>", x["bib-info"], x["z30-call-no"])
-		t[#t+1]=rec
+		local z = x["z13u-user-defined-3"]
+		local ck= x["z30-barcode"]
+		local key, nakladatel, strany = z:match("##[^%#]+##([^%#]+)##([^%#]+)##([^%#]+)")
+		local replace = string.format("<a href='http://ckis.cuni.cz/F/?func=find-e&request=%s&find_scan_code=FIND_IDN&adjacent=N&local_base=CKS'>%%1</a> /",ck)
+		--local replace = string.format("<a href='http://ckis.cuni.cz/F/?func=find-c&ccl_term=IDN+%%3D+%s&local_base=CKS'>%%1</a> /",ck)
+		local nazev = key:gsub("([^%/]+)/",replace):gsub("%[rukopis%] ","")
+		local bib = table.concat({nazev,nakladatel, strany}, ". ")
+		local rec = string.format("<div class='record'>\n<p>%s</p>\n<span class='signatura'>%s</span>\n</div>", bib, x["z30-call-no"])
+		t[key]= rec
+		print(key, rec, bib)
+		table.insert(f,key)
 	end
-	local text = table.concat(t,"\n")
-	local file = kat_tpl:gsub("{records}", text):gsub("{katlong}", kat_name)
+	table.sort(f, sort.compare)
+	print(s,#f)
+	local j = {}
+	for _, i in ipairs(f) do
+		j[#j+1] = t[i]
+	end
+	local text = table.concat(j,"\n")
+	local file = kat_tpl:gsub("{records}", text):gsub("{katlong}", s)
 	local name = make_name(s, proc_year_short)
 	save_file(diplout .. name, file)
 end
