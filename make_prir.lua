@@ -1,3 +1,4 @@
+#!/usr/bin/env texlua
 local prir = require "parse_prir"
 
 -- kompilace s $1 je xml soubor z alephu, $2 je rok ve formě,
@@ -60,13 +61,18 @@ local escape = function(s)
 		return '\\'..x
 	end)
 end
-
+last = 0
+local errors = {}
 for _, r in ipairs(p) do
 	-- local bib, car, cena = escape(r['bib-info']), r['z30-barcode'], r['z30-price']
 	local bib, car, cena = escape(r['z13u-user-defined-1']), tonumber(r['z30-barcode']) or 0, escape(r['z30-price'])
 
 	local dif = tonumber(car) - rada
 	if dif > 0 and dif < 10000 then
+		if car - last > 1 then
+			errors[#errors+1] = car
+		end
+		last = car
 		if cena ~='-' then cena = cena .. ",- Kč" end
 		local opac = escape(r['z30-note-opac']) 
 		local internal = escape(r['z30-note-internal'])
@@ -88,3 +94,8 @@ print(k,v)
 end
 --]]
 print(paticka)
+
+print "Potenciální chyby"
+for _, x in ipairs(errors) do
+	print(x)
+end

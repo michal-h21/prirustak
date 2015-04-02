@@ -1,3 +1,4 @@
+#!/usr/bin/env texlua
 local input = arg[1]
 local year =  arg[2]
 local bodyfile = "text"..year..".html"
