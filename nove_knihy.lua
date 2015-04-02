@@ -1,10 +1,13 @@
 #!/usr/bin/env texlua
+kpse.set_program_name("luatex")
 -- arg 1 xml soubor z alephu
 -- arg 2 zpracovávaný měsíc ve tvaru měsíc-rok
+os.setlocale("cs_CZ","collate")
 local prir = require "parse_prir"
 local lapp = require "lib.pl.lapp"
 local lustache = require "lib.lustache.lustache"
 local print_r = require "lib.print_r"
+local sort = require "sort"
 
 local args = lapp [[
 Zpracování nových knih. Defaultně se zpracovávají nové knihy
@@ -127,7 +130,32 @@ local run_job = function(records, rules)
 			end
 		end
 		-- print "processed input"
-		-- print_r(t)
+	--	print_r(t)
+		for k,v in pairs(t) do
+			local v = v
+			table.sort(v, function(a,b)
+				if not a then return  0 < 1 end
+				if not b then return  0 > 1 end
+				local a = a or {}
+				local b = b or {}
+				local x = a["z13-author"] or ""
+				if x == "" then 
+					local bib = a["bib-info"] or ""
+					x =  bib:gsub("<[^>]*>","") 
+					if x == "" then x = "žžžžžžž" end
+				end
+				local y = b["z13-author"] or "" 
+				if y == "" then 
+					local bib = b["bib-info"] or ""
+					y =  bib:gsub("<[^>]*>","") 
+					if y == "" then y = "žžžžžžž" end
+				end
+				--return x < y
+				return sort.compare(x,y)--x < y 
+			end)
+			-- print_r(v)
+			t[k] = v
+		end
 		results[output] = t
 		results[output]["localcount"] = loccnt
 	end
@@ -265,18 +293,22 @@ local rules = {
 			input = {"nove"},
 			process = function(records, rec)
 				local t = {}
+				local c = {}
 				-- rozsekat políčka konspektu
 				rec["z13u-user-defined-9"]:gsub("([0-9]+)", 
-				  function(x) table.insert(t,x) end
+				  -- někdy se konspekt opakuje, to je bomba
+				  function(x) c[x] = true end
 				)
+				for k, _ in pairs(c) do table.insert(t,k) end
 				if #t == 0 then
 					table.insert(t,99)
 				end
+				table.sort(t)
 				-- označit název knihy odkazem do katalogu
 				local ck = rec["z30-barcode"]
 				-- 
 				local odkaz1 = "http://ckis.cuni.cz/F/?func=find-e&request="
-				local odkaz2= "&find_scan_code=FIND_IDN&adjacent=N&local_base=CKS&x=0&y=0&filter_code_1=WLN&filter_request_1=&filter_code_2=WYR&filter_request_2=&filter_code_3=WYR&filter_request_3=&filter_code_4=WFM&filter_request_4=&filter_code_5=WSL&filter_request_5=PEDFR"
+				local odkaz2= "&find_scan_code=FIND_IDN&adjacent=N&local_base=CKS&x=0&y=0&filter_code_1=WLN&filter_request_1=&filter_code_2=WYR&filter_request_2=&filter_code_3=WYR&filter_request_3=&filter_code_4=WFM&filter_request_4=&filter_code_5=WSL"
 				--rec["bib-info"] = rec["bib-info"]:gsub("^([^/]*)", function(x) 
 				rec["bib-info"] = rec["bib-info"]:gsub("^(.*)/", function(x) 
 					return "<a href='"..odkaz1..ck..odkaz2.."'>"..x.."</a>/"
