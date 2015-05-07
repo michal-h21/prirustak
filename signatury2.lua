@@ -4,6 +4,13 @@ local parser= require "parse_prir"
 local input = arg[1]
 local f = parser.load_file(input)
 local match = arg[2] or ""
+local matches = {}
+
+local normalize = function(s)
+  return s:gsub("[0-9]+",""):gsub(" ","")
+end
+
+-- match = normalize(match)
 local pos = parser.find_pos(f,
       {"z30-item-status","z30-call-no", "z30-barcode", "z30-collection", 
       "z30-call-no-2","z13-year","z13-author","z13-title","z13u-user-defined-5"
@@ -72,9 +79,19 @@ for k, v in pairs(zaznamy) do
   records[signatura2] = rec
 end
 
+local unimatch = unicode.utf8.match
+local unigsub = unicode.utf8.gsub
+
+local normalize = function(s)
+  return unigsub(s,"[^a-z^A-Z]","")
+end
+
+local normatch = normalize(match)
 for x,y in pairs(records) do
   --print(x,#y)
-  if x:match(match) then
+  --print('"'..normalize(x)..'"',normalize(x)==normalize(match))
+  -- if unimatch(x,match) then
+  if normalize(x) == normatch then
     table.sort(y,function(a,b)
       local a1 = a["z13-author"]
       local a2 = b["z13-author"]
