@@ -40,7 +40,7 @@ local print_rec = function(x)
   x["z13u-user-defined-3"]:gsub("%#%#([^%#]*)", function(a)
     t[#t+1] = a
   end)
-  local nakladatel, strany = t[#t-1],t[#t]
+  local nakladatel, strany = t[#t-1] or "",t[#t]
   local vydavatel, rok =nakladatel:match( ".*: (.*), (.*)")
   vydavatel = vydavatel or ""
   strany = strany:match("(.- s.)") or strany:match("([^%:]*)")
