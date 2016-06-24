@@ -1,51 +1,9 @@
+---
+title: Přehled diplomových prací obhájených na uk pedf a evidovaných v knihovním systému od roku 2002
+---
+
 <!-- PREHLED_DIPLOMOVYCH_PRACI -->
 
-<html>
-
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="Author" content="Michal Hoftich">
-<meta name="generator" content="Microsoft FrontPage Express 2.0">
-<title>Přehled diplomových prací</title>
-
-<style type="text/css">
-<!--
-.z0 {font-family: Ariel, Times New Roman, Verdana;
-     font-size: 22pt;
-     font-style: normal;
-     font-weight: bold;
-     text-decoration: none;
-     color: brown;}
-.z3 {font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-     font-size: 10pt;
-     font-style: normal;
-     text-decoration: normal;
-     font-weight: bold;
-     color: black;}
-.z4 {font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-     font-size: 10pt;
-     font-style: normal;
-     font-weight: bold;
-     }
-.z5 {font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-     font-size: 10pt;
-     font-style: italic;
-     text-decoration: none;
-     font-weight: bold;
-     color: black;}
-.zz {font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-     font-size: 10pt;
-     font-weight: bold;
-     text-decoration: none;
-     color: blue;}
--->
-</style>
-
-</head>
-
-<body background="paper1.jpg" >
-
-<br><br>
 <table cols="1" align="center" cellSpacing="3" cellPadding="0" width="90%" border="0" bordercolor="red">
    <tr>
       <td valign="middle" align="center" bg_color="white">
@@ -1201,9 +1159,4 @@
 </p>
 </center>
 
-<br><br>
-
-</body>
-
-</html>
  
