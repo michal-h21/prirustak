@@ -1,4 +1,4 @@
-local pole =  {"z30-doc-number","z30-call-no","z13u-user-defined-1"} 
+local pole =  {"z30-doc-number","z30-call-no","z13u-user-defined-1", "z13-isbn-issn","z30-description"} 
 local parser= require "parse_prir"
 local input = arg[1]
 local f = parser.load_file(input)
