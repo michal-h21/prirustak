@@ -73,23 +73,13 @@ end
 
 table.sort(t)
 local kat_tpl = [[
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8" />
-<title>Obhájené diplomové práce: {katlong}</title>
-  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
-  <link rel="stylesheet" type="text/css" href="/scale.css" />
-	<link rel="stylesheet" type="text/css" href="/css/dipl.css" />
-
-</head>
-<body>
+---
+title: Obhájené diplomové práce: {katlong}
+---
 <header>
 <h1>Obhájené diplomové práce: {katlong}</h1>
 </header>
 {records}
-</body>
-</html>
 ]]
 
 local function make_katedra(kat_name, records)
@@ -101,11 +91,12 @@ local function make_katedra(kat_name, records)
 	for _,x in ipairs(records) do
 		local z = x["z13u-user-defined-3"]
 		local ck= x["z30-barcode"]
-		local key, nakladatel, strany = z:match("##[^%#]+##([^%#]+)##([^%#]+)##([^%#]+)")
+		local key, strany = z:match("##[^%#]+##([^%#]+)##([^%#]+)")
+    print(z, key, strany)
 		local replace = string.format("<a href='http://ckis.cuni.cz/F/?func=find-e&request=%s&find_scan_code=FIND_IDN&adjacent=N&local_base=CKS'>%%1</a> /",ck)
 		--local replace = string.format("<a href='http://ckis.cuni.cz/F/?func=find-c&ccl_term=IDN+%%3D+%s&local_base=CKS'>%%1</a> /",ck)
 		local nazev = key:gsub("([^%/]+)/",replace):gsub("%[rukopis%] ","")
-		local bib = table.concat({nazev,nakladatel, strany}, ". ")
+		local bib = table.concat({nazev, strany}, ". ")
 		local rec = string.format("<div class='record'>\n<p>%s</p>\n<span class='signatura'>%s</span>\n</div>", bib, x["z30-call-no"])
 		t[key]= rec
 		print(key, rec, bib)
