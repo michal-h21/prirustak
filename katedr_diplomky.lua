@@ -74,11 +74,9 @@ end
 table.sort(t)
 local kat_tpl = [[
 ---
-title: Obhájené diplomové práce: {katlong}
+title: "Obhájené diplomové práce: {katlong}"
 ---
-<header>
 <h1>Obhájené diplomové práce: {katlong}</h1>
-</header>
 {records}
 ]]
 
