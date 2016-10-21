@@ -41,7 +41,10 @@ end
 -- format obsahuje názvy polí
 local function print_csv(format, data)
   -- vytisknout hlavičku
-  print(format)
+  local function print_header(format)
+    print(format:gsub(",", "\t"))
+  end
+  print_header(format)
   -- získat pole, která budem tisknout ze záznamu
   local fields = parse_format(format)
   for _, row in ipairs(data) do
@@ -62,7 +65,7 @@ if not input then
 end
 
 local parser= require "parse_prir"
-local source_format = arg[2] or "ck,sysno,signatura,bibinfo,lokace,status,dilci"
+local source_format = arg[2] or "ck,sysno,rok,signatura,bibinfo,lokace,status,dilci"
 local format = parse_format(source_format) 
 local f = parser.load_file(input)
 local pos = parser.find_pos(f,
