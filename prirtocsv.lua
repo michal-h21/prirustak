@@ -1,3 +1,4 @@
+#!/usr/bin/env texlua
 -- konfigurovatelnej export alephovskýho xml do csv
 -- arg[1] název 
 -- arg[2] -- seznam polí oddělených čárkou (volitelný)
@@ -12,9 +13,16 @@ local map = {
   ck = "z30-barcode",
   bibinfo = "bib-info",
   rok = "z13-year",
+  druh = "z30-material",
   dilci = "z30-sub-library",
   lokace = "z30-collection",
-  sysno = "z13u-doc-number"
+  sysno = "z13u-doc-number",
+  nazevautor = "z13u-user-defined-2",
+  ctenar = "z303-name",
+  pujceno = "z36-loan-date",
+  pujceno_do = "z36-due-date",
+  dilci_knihovna = "z30-sub-library",
+  id_ctenare = "z303-id",
 }--,"z13u-user-defined-10","z13u-user-defined-3"}
 
 local function print_help()
@@ -30,6 +38,7 @@ local function parse_format(s)
   for name in s:gmatch "%s*([^%,]+)" do
     local field = map[name]
     if not field then
+      print("Chybí popisek pro pole: " .. name)
       print_help()
       os.exit()
     end
@@ -64,8 +73,9 @@ if not input then
   os.exit()
 end
 
+
 local parser= require "parse_prir"
-local source_format = arg[2] or "ck,sysno,rok,signatura,bibinfo,lokace,status,dilci"
+local source_format = arg[2] or "ck,sysno,rok,signatura,druh,bibinfo,lokace,status,dilci"
 local format = parse_format(source_format) 
 local f = parser.load_file(input)
 local pos = parser.find_pos(f,
