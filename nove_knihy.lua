@@ -156,6 +156,11 @@ local run_job = function(records, rules)
 			-- print_r(v)
 			t[k] = v
 		end
+    for k,v in pairs(t) do
+      if k:match("^[0-9]+$") then
+        t[k.."?"] = true
+      end
+    end
 		results[output] = t
 		results[output]["localcount"] = loccnt
 	end
@@ -181,83 +186,134 @@ local konspekt_tpl = [[
 {{#99}}
 <h1>Záznamy bez konspektu</h2>
 {{>zaznamy}}{{/99}}
+
+{{#1?}}
 <div class='konspekt' id='konspekt-1'>1. Antropologie, etnografie</div>
+ {{/1?}}
  {{#1}}{{>zaznamy}}{{/1}}
 
+{{#2?}}
  <div class='konspekt' id='konspekt-2'>2. Biologické vědy</div>
+ {{/2?}}
  {{#2}}{{>zaznamy}}{{/2}}
 
+{{#3?}}
  <div class='konspekt' id='konspekt-3'>3.  Divadlo, film, tanec</div>
+ {{/3?}}
  {{#3}}{{>zaznamy}}{{/3}}
 
+{{#4?}}
  <div class='konspekt' id='konspekt-4'>4.  Ekonomické vědy, obchod</div>
+ {{/4?}}
  {{#4}}{{>zaznamy}}{{/4}}
 
+{{#5?}}
  <div class='konspekt' id='konspekt-5'>5.  Filozofie a náboženství</div>
+ {{/5?}}
  {{#5}}{{>zaznamy}}{{/5}}
 
+{{#6?}}
  <div class='konspekt' id='konspekt-6'>6.  Fyzika a příbuzné vědy</div>
+ {{/6?}}
  {{#6}}{{>zaznamy}}{{/6}}
 
+{{#7?}}
  <div class='konspekt' id='konspekt-7'>7.  Geografie. Geologie. Vědy o zemi</div>
+{{/7?}}
  {{#7}}{{>zaznamy}}{{/7}}
 
+{{#8?}}
  <div class='konspekt' id='konspekt-8'>8.  Historie a pomocné historické vědy. Biografické studie</div>
+{{/8?}}
  {{#8}}{{>zaznamy}}{{/8}}
 
+{{#9?}}
  <div class='konspekt' id='konspekt-9'>9.  Hudba</div>
+{{/9?}}
  {{#9}}{{>zaznamy}}{{/9}}
 
+{{#10?}}
  <div class='konspekt' id='konspekt-10'>10.  Chemie. Krystalografie. Mineralogické vědy</div>
+ {{/10?}}
  {{#10}}{{>zaznamy}}{{/10}}
 
+{{#11?}}
  <div class='konspekt' id='konspekt-11'>11.  Jazyk, lingvistika, literární věda</div>
+ {{/11?}}
  {{#11}}{{>zaznamy}}{{/11}}
 
+{{#12?}}
  <div class='konspekt' id='konspekt-12'>12.  Knihovnictví, informatika, všeobecné, referenční literatura</div>
+ {{/12?}}
  {{#12}}{{>zaznamy}}{{/12}}
 
+{{#13?}}
  <div class='konspekt' id='konspekt-13'>13.  Matematika</div>
+ {{/13?}}
  {{#13}}{{>zaznamy}}{{/13}}
 
+{{#14?}}
  <div class='konspekt' id='konspekt-14'>14.  Lékařství</div>
+ {{/14?}}
  {{#14}}{{>zaznamy}}{{/14}}
 
+{{#15?}}
  <div class='konspekt' id='konspekt-15'>15.  Politické vědy (Politologie, politika, veřejná správa, vojenství)</div>
+ {{/15?}}
  {{#15}}{{>zaznamy}}{{/15}}
 
+{{#16?}}
  <div class='konspekt' id='konspekt-16'>16.  Právo</div>
+ {{/16?}}
  {{#16}}{{>zaznamy}}{{/16}}
 
+{{#17?}}
  <div class='konspekt' id='konspekt-17'>17.  Psychologie</div>
+ {{/17?}}
  {{#17}}{{>zaznamy}}{{/17}}
 
+{{#18?}}
  <div class='konspekt' id='konspekt-18'>18.  Sociologie</div>
+ {{/18?}}
  {{#18}}{{>zaznamy}}{{/18}}
 
+{{#19?}}
  <div class='konspekt' id='konspekt-19'>19.  Technika, technologie, inženýrství</div>
+ {{/19?}}
  {{#19}}{{>zaznamy}}{{/19}}
 
+{{#20?}}
  <div class='konspekt' id='konspekt-20'>20.  Tělesná výchova a sport. Rekreace</div>
+ {{/20?}}
  {{#20}}{{>zaznamy}}{{/20}}
 
+{{#21?}}
  <div class='konspekt' id='konspekt-21'>21.  Umění, architektura, muzeologie</div>
+ {{/21?}}
  {{#21}}{{>zaznamy}}{{/21}}
 
+{{#22?}}
  <div class='konspekt' id='konspekt-22'>22.  Výchova a vzdělávání</div>
+ {{/22?}}
  {{#22}}{{>zaznamy}}{{/22}}
 
+{{#23?}}
  <div class='konspekt' id='konspekt-23'>23.  Výpočetní technika</div>
+ {{/23?}}
  {{#23}}{{>zaznamy}}{{/23}}
 
+{{#24?}}
  <div class='konspekt' id='konspekt-24'>24.  Zemědělství</div>
+ {{/24?}}
  {{#24}}{{>zaznamy}}{{/24}}
 
+{{#25?}}
  <div class='konspekt' id='konspekt-25'>25.  Beletrie</div>
+ {{/25?}}
  {{#25}}{{>zaznamy}}{{/25}}
  <!--
  Záznamy bez konspektu:
- {{#99}}{{>zaznamy}}{{/25}}
+ {{#99}}{{>zaznamy}}{{/99}}
  -->
 </body>
 </html>
@@ -299,7 +355,9 @@ local rules = {
 				  -- někdy se konspekt opakuje, to je bomba
 				  function(x) c[x] = true end
 				)
-				for k, _ in pairs(c) do table.insert(t,k) end
+				for k, _ in pairs(c) do 
+          table.insert(t,k) 
+        end
 				if #t == 0 then
 					table.insert(t,99)
 				end
@@ -331,6 +389,7 @@ local rules = {
 				for _,v in pairs(t) do
 					local c = records[v] or {}
 					table.insert(c, rec)
+          -- records[v.."?"] = true
 					records[v] = c
 				end
 				return records 
@@ -345,7 +404,7 @@ local rules = {
 	  konspekt = konspekt_tpl,
 		zaznamy  = [[<div class='container'>
 		<div class='cover'>
-		  <img width='80px' height='80px' alt = '' src='http://www.obalkyknih.cz/api/cover?isbn={{z13-isbn-issn}}' />
+		  <img height='80px' alt = '' src='http://www.obalkyknih.cz/api/cover?isbn={{z13-isbn-issn}}' />
 		</div>
 		<div class='record'>
 		  <div class='author'>{{{z13-author}}}</div>
