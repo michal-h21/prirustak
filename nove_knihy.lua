@@ -118,10 +118,10 @@ local run_job = function(records, rules)
 		local loccnt = 0
 		local input = rules.input or {}
 		-- print("Output rules", output)
-		for _, tbl in pairs(input) do
+		for _, tbl in ipairs(input) do
 			-- print("Process table", tbl)
 			local x = start[tbl] or {}
-			for _, v in pairs(x) do
+			for _, v in ipairs(x) do
 				t = fn(t, v)
 				if t then 
 					count = count + 1 
@@ -131,6 +131,7 @@ local run_job = function(records, rules)
 		end
 		-- print "processed input"
 	--	print_r(t)
+    local conspects = {}
 		for k,v in pairs(t) do
 			local v = v
 			table.sort(v, function(a,b)
@@ -153,10 +154,15 @@ local run_job = function(records, rules)
 				--return x < y
 				return sort.compare(x,y)--x < y 
 			end)
-			-- print_r(v)
 			t[k] = v
+      -- uložit použité konspekty do zvláštní tabulky
+      -- protože jinak nám následující iterátor udělá 
+      -- nepořádek v tabulce t a nepoužijou se všechny skupiny,
+      -- nebo se použijou špatně
+      conspects[k] = true
 		end
-    for k,v in pairs(t) do
+    for k,v in pairs(conspects) do
+      local k = tostring(k)
       if k:match("^[0-9]+$") then
         t[k.."?"] = true
       end
@@ -386,7 +392,7 @@ local rules = {
 				end
 				-- projít všechny políčka konspektu, který záznam obsahuje 
 				-- a přidat ho tam
-				for _,v in pairs(t) do
+				for _,v in ipairs(t) do
 					local c = records[v] or {}
 					table.insert(c, rec)
           -- records[v.."?"] = true
