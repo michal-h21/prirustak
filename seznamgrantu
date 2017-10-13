@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-texlua prirtocsv.lua $1  "id_ctenare,ctenar,ck,nazevautor,dilci_knihovna,signatura,pujceno,pujceno_do"
+texlua prirtocsv.lua $1  "id_ctenare,ctenar,ck,nazevautor,dilci_knihovna,signatura,status,pujceno,pujceno_do"
