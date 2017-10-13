@@ -23,6 +23,12 @@ local map = {
   pujceno_do = "z36-due-date",
   dilci_knihovna = "z30-sub-library",
   id_ctenare = "z303-id",
+  zpracovani = "z30-item-process-status",
+  popis = "z30-description",
+  datum_narozeni = "z303-birth-date",
+  datum_registrace = "z305-registration-date",
+  posledni_aktivita = "z305-last-activity-date",
+  status_ctenare = "z305-bor-status",
 }--,"z13u-user-defined-10","z13u-user-defined-3"}
 
 local function print_help()
@@ -75,7 +81,7 @@ end
 
 
 local parser= require "parse_prir"
-local source_format = arg[2] or "ck,sysno,rok,signatura,druh,bibinfo,lokace,status,dilci"
+local source_format = arg[2] or "ck,sysno,rok,signatura,druh,nazevautor,lokace,status,dilci,popis"
 local format = parse_format(source_format) 
 local f = parser.load_file(input)
 local pos = parser.find_pos(f,
