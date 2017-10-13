@@ -1,4 +1,5 @@
 local tpl = [[
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -11,7 +12,7 @@ local tpl = [[
 <body> 
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-
+<tr>
    <td width="25%" valign="top" >
     <iframe name="hlavni" src="{{konspekt}}" width="100%" height="660"  frameborder="0" align="baseline">
      </iframe>
