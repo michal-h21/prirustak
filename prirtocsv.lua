@@ -29,6 +29,7 @@ local map = {
   datum_registrace = "z305-registration-date",
   posledni_aktivita = "z305-last-activity-date",
   status_ctenare = "z305-bor-status",
+  signatura2 = "z30-call-no-2",
 }--,"z13u-user-defined-10","z13u-user-defined-3"}
 
 local function print_help()
