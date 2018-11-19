@@ -188,7 +188,7 @@ local konspekt_tpl = [[
 <link rel="stylesheet" type="text/css" href="nove.css" />
 </head>
 <body>
-<h1>Přírustky dokumentů ({{count}})</h1>
+<h1>Přírůstky dokumentů ({{count}})</h1>
 {{#99}}
 <h1>Záznamy bez konspektu</h2>
 {{>zaznamy}}{{/99}}
@@ -371,11 +371,11 @@ local rules = {
 				-- označit název knihy odkazem do katalogu
 				local ck = rec["z30-barcode"]
 				-- 
-				local odkaz1 = "http://ckis.cuni.cz/F/?func=find-e&request="
-				local odkaz2= "&find_scan_code=FIND_IDN&adjacent=N&local_base=CKS&x=0&y=0&filter_code_1=WLN&filter_request_1=&filter_code_2=WYR&filter_request_2=&filter_code_3=WYR&filter_request_3=&filter_code_4=WFM&filter_request_4=&filter_code_5=WSL"
+				local odkaz1 = "https://ckis.cuni.cz/F/?func=find-e&request="
+				local odkaz2= "&amp;find_scan_code=FIND_IDN&amp;adjacent=N&amp;local_base=CKS&amp;x=0&amp;y=0&amp;filter_code_1=WLN&amp;filter_request_1=&amp;filter_code_2=WYR&amp;filter_request_2=&amp;filter_code_3=WYR&amp;filter_request_3=&amp;filter_code_4=WFM&amp;filter_request_4=&amp;filter_code_5=WSL"
 				--rec["bib-info"] = rec["bib-info"]:gsub("^([^/]*)", function(x) 
 				rec["bib-info"] = rec["bib-info"]:gsub("^(.*)/", function(x) 
-					return "<a href='"..odkaz1..ck..odkaz2.."'>"..x.."</a>/"
+					return "<a href='"..odkaz1..ck..odkaz2.."' target='_blank'>"..x.."</a>/"
 				end):gsub("[%s]*%(#[^%)]*%)$","")
 				local parse_author = function(a) 
 					local a = a or ""
@@ -410,7 +410,7 @@ local rules = {
 	  konspekt = konspekt_tpl,
 		zaznamy  = [[<div class='container'>
 		<div class='cover'>
-		  <img height='80px' alt = '' src='http://www.obalkyknih.cz/api/cover?isbn={{z13-isbn-issn}}' />
+		  <img height='80px' alt = '' src='https://www.obalkyknih.cz/api/cover?isbn={{z13-isbn-issn}}' />
 		</div>
 		<div class='record'>
 		  <div class='author'>{{{z13-author}}}</div>
