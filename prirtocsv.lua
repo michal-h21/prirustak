@@ -1,5 +1,4 @@
-#!/usr/bin/env texlua
--- konfigurovatelnej export alephovskýho xml do csv
+#!/usr/bin/env texlua -- konfigurovatelnej export alephovskýho xml do csv
 -- arg[1] název 
 -- arg[2] -- seznam polí oddělených čárkou (volitelný)
 --
@@ -18,6 +17,7 @@ local map = {
   lokace = "z30-collection",
   pujceno = "is-loan",
   bibinfo = "bib-info",
+  vypujcek = "z30-no-loans",
   signatura = "z30-call-no",
   id_ctenare = "z303-id",
   signatura2 = "z30-call-no-2",
