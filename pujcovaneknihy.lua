@@ -27,8 +27,11 @@ end
 
 -- test if the current book is in the study room
 local function is_study_room(bibitem, rec)
-  local current = rec.lokace == "Rett-studovna"
-  return bibitem.studyroom or current
+  if rec.lokace == "Rett-studovna" then
+    -- print(rec.ck)
+    return true
+  end
+  return bibitem.studyroom
 end
 
 local function count_loans(bibitem, rec)
@@ -56,7 +59,6 @@ for rec in data:lines() do
   bibitem.loans = count_loans(bibitem, rec)
   bibitem.rok = handle_year(bibitem, rec)
   bibitems[sysno] = bibitem
-  print(rec.ck, bibitem.studyroom,is_study_room(bibitem,rec), rec.lokace)
 end
 
 
@@ -65,6 +67,6 @@ local to_study_room = {}
 for sysno,bibitem in pairs(bibitems) do
   -- select only books 
   if not bibitem.studyroom and bibitem.rok >= start_year then
-    -- print(sysno, bibitem.count, bibitem.loans, bibitem.loans / bibitem.count, bibitem.rok, bibitem.signatura,expand_entities( bibitem.nazevautor))
+    print(sysno, bibitem.count, bibitem.loans, bibitem.loans / bibitem.count, bibitem.rok, bibitem.signatura,expand_entities( bibitem.nazevautor))
   end
 end
