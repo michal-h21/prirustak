@@ -9,6 +9,7 @@ local map = {
   ck = "z30-barcode",
   rok = "z13-year",
   druh = "z30-material",
+  mail = "email-address",
   dilci = "z30-sub-library",
   sysno = "z30-doc-number",
   popis = "z30-description",
@@ -31,6 +32,7 @@ local map = {
   datum_narozeni = "z303-birth-date",
   status_ctenare = "z305-bor-status",
   datum_registrace = "z305-registration-date",
+  konec_registrace = "z305-expiry-date",
   posledni_aktivita = "z305-last-activity-date",
 
 }--,"z13u-user-defined-10","z13u-user-defined-3"}
@@ -70,7 +72,7 @@ local function print_csv(format, data)
     local t = {}
     -- projít pole v záznamu a vytvořit tabulku, kterou budeme tisknout
     for _, f in ipairs(fields) do
-      t[#t+1] = row[f]
+      t[#t+1] = row[f] or ""
     end
     print(table.concat(t,"\t"))
   end
