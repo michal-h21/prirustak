@@ -1,4 +1,7 @@
 local M = {}
+kpse.set_program_name "luatex"
+
+local entities = require "luaxml-entities"
 
 local load_file = function(name)
 	local f = io.open(name,"r")
@@ -56,10 +59,16 @@ local find_pos = function(xml, t, root)
 	return pos
 end
 
+-- decode xml entites
+local decode = entities.decode
+local function escape(v)
+  return decode(v)
+end
+
 local parse_line = function(r, l, pos)
   if r and saves[pos] then
 		local k, v = l:match(pattern)
-		r[k] = v
+		r[k] = escape(v)
 	end
 	return r
 end
