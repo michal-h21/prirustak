@@ -63,7 +63,8 @@ end
 local function print_csv(format, data)
   -- vytisknout hlavičku
   local function print_header(format)
-    print(format:gsub(",", "\t"))
+    local head = format:gsub(",", "\t")
+    print(head)
   end
   print_header(format)
   -- získat pole, která budem tisknout ze záznamu
