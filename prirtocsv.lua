@@ -1,4 +1,5 @@
-#!/usr/bin/env texlua -- konfigurovatelnej export alephovskýho xml do csv
+#!/usr/bin/env texlua 
+-- konfigurovatelnej export alephovskýho xml do csv
 -- arg[1] název 
 -- arg[2] -- seznam polí oddělených čárkou (volitelný)
 --
@@ -31,6 +32,7 @@ local map = {
   dilci_knihovna = "z30-sub-library",
   datum_narozeni = "z303-birth-date",
   status_ctenare = "z305-bor-status",
+  posledni_vraceni = "z30-date-last-return",
   datum_registrace = "z305-registration-date",
   konec_registrace = "z305-expiry-date",
   posledni_aktivita = "z305-last-activity-date",
