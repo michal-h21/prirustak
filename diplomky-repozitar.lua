@@ -42,6 +42,6 @@ local zaz = parser.parse(f)
 for k,v in ipairs(zaz) do
   local name, author, supervizor = parse_authors(v["z13u-user-defined-2"])
   local katedra = parse_katedra(v["z13u-user-defined-10"],v["z13u-user-defined-11"])
-  local record = {v["z30-doc-number"],author, name, supervizor or "", katedra or "", v["z30-barcode"], v["z30-call-no"]}
+  local record = {v["z30-doc-number"],author, name, supervizor or "", katedra or "", v["z30-barcode"], v["z30-call-no"],v["z13-year"]}
   print(table.concat(record, "\t"))
 end
