@@ -75,14 +75,14 @@ end
 
 
 local parse = function(f, root)
-  local root = root or '<section-02>' 
+  local root = root or 'section-02' 
+  root = "<" .. root .. ">"
 	local position = 0
 	local records = {}
 	local r = nil
 	f:seek('set')
 	for line in f:lines() do
 		position = position + 1
-    print(position, ":" .. line .. ":")
 		if line == root then
 			records = save_record(records, r)
 			r, position = new_record(position)
