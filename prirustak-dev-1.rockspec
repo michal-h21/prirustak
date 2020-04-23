@@ -17,6 +17,7 @@ build = {
       ["pl.lapp"] = "lib/pl/lapp.lua",
       ["pl.sip"] = "lib/pl/sip.lua",
       print_r = "lib/print_r.lua",
-      ["parse_prir"] = "parse_prir.lua"
+      ["parse_prir"] = "parse_prir.lua",
+      ["prirtocsv"] = "prirtocsv.lua"
    }
 }
