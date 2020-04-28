@@ -111,7 +111,7 @@ local edits = {
   end,
   nazev = function(s)
     -- vrat vsechno po lomitko
-    -- a smaz vsechny uvozovky
+    -- a smaz vsechny uvozovky -- delaji problem pri nahravani v LO Calc
     return s:match("^([^%/]+)"):gsub("'", ""):gsub('"', "") or ""
   end,
   isbn = function(s)
@@ -162,7 +162,7 @@ end
 
 
 local parser= require "parse_prir"
-local source_format = arg[2] or "ck,sysno,rok,signatura,druh,nazevautor,lokace,status,dilci,popis"
+local source_format = arg[2] or "ck,sysno,rok,signatura,druh,nazev,autor,vydavatel,lokace,status,dilci,popis"
 local format = parse_format(source_format) 
 local f = parser.load_file(input)
 local pos = parser.find_pos(f,
