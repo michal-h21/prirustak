@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+texlua prirtocsv.lua $1 "ck,signatura,datum_zpracovani,autor,nazev,vydavatel,rok,isbn,cena,faktura,dodavatel,rozpocet,popis"
+# texlua prirtocsv.lua $1 "autor,vydavatel,nazev"
