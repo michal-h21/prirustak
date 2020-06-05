@@ -347,7 +347,11 @@ local rules = {
 			},
 			Dt = nove_rule,
 			["2Sc"] = nove_rule,
-			Be = nove_rule
+			["2H"] = nove_rule,
+			["2Be"] = nove_rule,
+			Be = nove_rule,
+      H = nove_rule,
+      C = nove_rule,
 		}
 	},
 	process = {
