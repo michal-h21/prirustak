@@ -48,6 +48,7 @@ local map = {
   datum_narozeni = "z303-birth-date",
   status_ctenare = "z305-bor-status",
   pujceno_stanice = "z36-loan-cataloger-ip",
+  posledni_vraceni = "z30-date-last-return",
   datum_zpracovani = "z30-inventory-number-date",
   interni_poznamka = "z30-note-internal",
   posledni_vraceni = "z30-date-last-return",
@@ -151,7 +152,10 @@ local function print_csv(format, data, format_string)
     for i, f in ipairs(fields) do
       t[#t+1] = edit(name_fields[i], row[f] or "")
     end
-    print(table.concat(t,"\t"))
+    local line = table.concat(t,"\t")
+    -- nahradit znaky ", delaji problem pri otevreni v Calcu
+    line = line:gsub('"', "'")
+    print(line)
   end
 end
 
