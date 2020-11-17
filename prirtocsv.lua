@@ -43,6 +43,7 @@ local map = {
   druh_studia2 = "z305-field-2",
   pujceno_datum = "z36-loan-date",
   vraceno_datum = "z36-returned-date",
+  poznamka_opac = "z30-note-opac",
   datum_vypujcky = "z36-loan-date",
   dilci_knihovna = "z30-sub-library",
   datum_narozeni = "z303-birth-date",
