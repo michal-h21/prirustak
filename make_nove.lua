@@ -3,7 +3,7 @@ local input = arg[1]
 local year =  arg[2]
 if not year:match("..%-....") then
   print("Wrong date format: " .. year)
-  print("Correct form: YYYY-MM")
+  print("Correct form: MM-YYYY")
   os.exit()
 end
 local bodyfile = "text"..year..".html"
