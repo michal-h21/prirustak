@@ -27,6 +27,7 @@ local map = {
   faktura = "z30-invoice-number",
   rozpocet = "order-info",
   vypujcek = "z30-no-loans",
+  konspekt = "z13u-user-defined-9",
   signatura = "z30-call-no",
   dodavatel = "z30-vendor-code",
   vydavatel = "z13u-user-defined-5",
