@@ -25,6 +25,7 @@ local map = {
   pujceno = "is-loan",
   bibinfo = "bib-info",
   faktura = "z30-invoice-number",
+  konspekt = "z13u-user-defined-9",
   rozpocet = "order-info",
   vypujcek = "z30-no-loans",
   signatura = "z30-call-no",
