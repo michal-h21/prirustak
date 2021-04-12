@@ -252,4 +252,6 @@ M.find_pos = find_pos
 M.field_map = map
 M.print_csv = print_csv
 M.parse_format = parse_format
+M.parse_format_string = parse_format_string
+M.edit = edit
 return M
