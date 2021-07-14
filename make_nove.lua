@@ -1,6 +1,11 @@
 #!/usr/bin/env texlua
 local input = arg[1]
 local year =  arg[2]
+if not year then
+  print("Usage: make_nove.lua xml date")
+  print("Correct date form: MM-YYYY")
+  os.exit()
+end
 if not year:match("..%-....") then
   print("Wrong date format: " .. year)
   print("Correct form: MM-YYYY")
